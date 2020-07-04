@@ -5,6 +5,10 @@ const updateItemStatus = async function updateItemStatus(tab) {
   const allTabs = await browser.tabs.query({currentWindow: true});
 
   let enabled = false;
+  /*
+   * TODO Improve logic so that "Close Tabs to the Left" item is disabled when
+   * all tabs to the left are pinned.
+   */
   if (tab.index > 0) {
     enabled = true;
   }
