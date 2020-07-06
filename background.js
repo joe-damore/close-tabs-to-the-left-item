@@ -3,8 +3,10 @@ const MENU_ITEM_ID = "close_left";
 
 /**
  * Enables or disables the "Close Tabs to the Left" menu item according to selected tab.
+ *
+ * @param {object} selectedTab - Tab from which context menu was opened.
  */
-const updateItemStatus = async function updateItemStatus(tab) {
+const updateItemStatus = async function updateItemStatus(selectedTab) {
   const allTabs = await browser.tabs.query({currentWindow: true});
 
   let enabled = false;
@@ -12,7 +14,7 @@ const updateItemStatus = async function updateItemStatus(tab) {
    * TODO Improve logic so that "Close Tabs to the Left" item is disabled when
    * all tabs to the left are pinned.
    */
-  if (tab.index > 0) {
+  if (selectedTab.index > 0) {
     enabled = true;
   }
 
@@ -26,13 +28,13 @@ const updateItemStatus = async function updateItemStatus(tab) {
 /**
  * Closes all tabs in `all` that are to the left of the `selected` tab.
  *
- * @param {Object} selected - Tab from which context menu was opened.
- * @param {Object[]} all - All tabs in current window.
+ * @param {Object} selectedTab - Tab from which context menu was opened.
+ * @param {Object[]} allTabs - All tabs in current window.
  */
-const closeTabs = function closeTabs(selected, all) {
-  const removedTabIDs = all
+const closeTabs = function closeTabs(selectedTab, allTabs) {
+  const removedTabIDs = allTabs
     .filter((tab) => {
-      return tab.index < selected.index;
+      return tab.index < selectedTab.index;
     })
     .filter((tab) => {
       return !tab.pinned;
