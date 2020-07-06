@@ -1,6 +1,6 @@
 # Close Tabs to the Left Menu Item
 
-[![Add-Ons for Firefox | Close Tabs to the Left Menu Item v1.0.0](https://img.shields.io/badge/Firefox%20Add--Ons-v1.0.0-722291)](https://addons.mozilla.org/en-US/firefox/addon/close-tabs-to-the-left-item/)
+[![Add-Ons for Firefox | Close Tabs to the Left Menu Item v1.0.1](https://img.shields.io/badge/Firefox%20Add--Ons-v1.0.1-722291)](https://addons.mozilla.org/en-US/firefox/addon/close-tabs-to-the-left-item/)
 
 Firefox extension that adds a "Close Tabs to the Left" context menu item in Firefox v78+.
 
