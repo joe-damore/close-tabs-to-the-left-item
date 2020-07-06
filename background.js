@@ -1,3 +1,6 @@
+// 'Close Tabs to the Left' context menu item unique ID.
+const MENU_ITEM_ID = "close_left";
+
 /**
  * Enables or disables the "Close Tabs to the Left" menu item according to selected tab.
  */
@@ -13,7 +16,7 @@ const updateItemStatus = async function updateItemStatus(tab) {
     enabled = true;
   }
 
-  browser.contextMenus.update("close_left", {
+  browser.contextMenus.update(MENU_ITEM_ID, {
     enabled,
   });
 
@@ -42,7 +45,7 @@ const closeTabs = function closeTabs(selected, all) {
 }
 
 const item = browser.contextMenus.create({
-  id: "close_left",
+  id: MENU_ITEM_ID,
   title: browser.i18n.getMessage("menuItemTitle"),
   contexts: ["tab"],
 }, () => {
@@ -57,13 +60,13 @@ browser.contextMenus.onShown.addListener(async (info, tab) => {
 });
 
 /**
- * Calls "closeTabs" if the "close_left" context menu item is clicked.
+ * Calls "closeTabs" if the MENU_ITEM_ID context menu item is clicked.
  *
  * @param {Object} info - Clicked menu item info.
  * @param {Object} tab - Tab that was clicked.
  */
 browser.contextMenus.onClicked.addListener(async (info, tab) => {
-  if (info.menuItemId === "close_left") {
+  if (info.menuItemId === MENU_ITEM_ID) {
     const allTabs = await browser.tabs.query({currentWindow: true});
     closeTabs(tab, allTabs);
   }
