@@ -1,0 +1,14 @@
+{
+  "extensionName": {
+    "message": "Linke Tabs schließen Menüpunkt",
+    "description": "Extension name"
+  },
+  "extensionDescription": {
+    "message": "Fügt einen 'Linke Tabs schließen' Eintrag im Tab-Kontextmenü hinzu",
+    "description": "Extension description"
+  },
+  "menuItemTitle": {
+    "message": "&Linke Tabs schließen",
+    "description": "Context menu item title"
+  }
+}
